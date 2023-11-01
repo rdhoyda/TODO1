@@ -145,8 +145,8 @@ function App() {
     switch (action.type) {
       case "CREATE_POST":
         const newPost = {
-          title: action.title,
-          content: action.content,
+          title: action.post.title,
+          content: action.post.content,
           author: user,
           complete: false,
           dateCreated: new Date().toISOString(),
@@ -175,12 +175,14 @@ function App() {
   const [posts, dispatchPost] = useReducer(postReducer, initialPosts);
 
   const handleAddPost = (newPost) => {
+    console.log(newPost);
     dispatchPost({ type: "CREATE_POST", ...newPost });
   };
 
   const handleDeletePost = (title) => {
     dispatchPost({ type: "DELETE_POST", title });
   };
+
 
   return (
     <div>

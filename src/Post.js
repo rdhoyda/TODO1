@@ -83,7 +83,9 @@
     
 import React, { useState } from "react";
 
-export default function Post({ title, description, author, dateCreated, complete, dateCompleted }) {
+export default function Post({ post }) {
+
+
     
   function formatDate(dateString) {
     if (dateString) {  
@@ -101,8 +103,8 @@ export default function Post({ title, description, author, dateCreated, complete
     return "Not Applicable";
   }
 
-  const [isComplete, setIsComplete] = useState(complete);
-  const [completionDate, setCompletionDate] = useState(dateCompleted);
+  const [isComplete, setIsComplete] = useState(post.complete);
+  const [completionDate, setCompletionDate] = useState(post.dateCompleted);
 
   function handleCompleteToggle() {
     setIsComplete(!isComplete);
@@ -122,11 +124,11 @@ export default function Post({ title, description, author, dateCreated, complete
 
   return (
     <div>
-      <h3>{title}</h3>
-      <div>{description}</div>
+      <h3>{post.title}</h3>
+      <div>{post.content}</div>
       <br />
-      <i>Written by <b>{author}</b></i>
-      <div><i>Date Created: <b>{formatDateTime(new Date(dateCreated))}</b></i></div>
+      <i>Written by <b>{post.author}</b></i>
+      <div><i>Date Created: <b>{formatDateTime(new Date(post.dateCreated))}</b></i></div>
       <div>
         <label>
           <input

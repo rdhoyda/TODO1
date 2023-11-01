@@ -58,15 +58,7 @@ export default function CreatePost({ user, handleAddPost, dispatchPost }) {
             onChange={handleContentChange}
           />
         </div>
-        <div>
-          <label htmlFor="author">Author:</label>
-          <input
-            type="text"
-            id="author"
-            value={author}
-            onChange={handleAuthorChange}
-          />
-        </div>
+        
         <div>
           <button type="submit">Create Post</button>
         </div>

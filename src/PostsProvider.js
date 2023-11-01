@@ -50,7 +50,7 @@ export default function PostsProvider({ posts = [], handleDeletePost }) {
     <div>
       {posts.map((p, i) => (
         <div key={uuid4()}>
-          <Post {...p} />
+          <Post post={p} />
           <button onClick={() => handleDeletePost(p.title)}>Delete</button>
         </div>
       ))}
